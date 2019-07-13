@@ -9,7 +9,7 @@ import './EditItem.scss';
 const defaultItem = {
   itemName: '',
   itemImage: '',
-  imageDescription: '',
+  itemDescription: '',
 };
 
 class EditItem extends React.Component {
