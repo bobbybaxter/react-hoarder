@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -19,6 +18,12 @@ class MyStuff extends React.Component {
       .catch(err => console.error('getStuff didnt work', err));
   }
 
+  deleteItem = (itemId) => {
+    stuffData.deleteItem(itemId)
+      .then(() => this.getStuff())
+      .catch(err => console.error(err));
+  }
+
   componentDidMount() {
     this.getStuff();
   }
@@ -28,13 +33,12 @@ class MyStuff extends React.Component {
       <ItemCard
         key={item.id}
         item={item}
+        deleteItem={this.deleteItem}
       />
     ));
     return (
       <div className="MyStuff">
         <h1>My Stuff</h1>
-        <Link to={'/edit/12345'}>Edit Page</Link>
-        <Link to={'/item/12345'}>Single Page</Link>
         <div className="d-flex flex-row flex-wrap">
           {makeItemCards}
         </div>

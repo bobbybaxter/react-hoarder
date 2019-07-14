@@ -1,7 +1,6 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import itemShape from '../../helpers/propz/itemShape';
 
 import './ItemCard.scss';
@@ -9,6 +8,13 @@ import './ItemCard.scss';
 class ItemCard extends React.Component {
   static propTypes = {
     item: itemShape.itemShape,
+    deleteMe: PropTypes.func.isRequired,
+  }
+
+  deleteMe = (e) => {
+    e.preventDefault();
+    const { item, deleteItem } = this.props;
+    deleteItem(item.id);
   }
 
   render() {
@@ -25,7 +31,7 @@ class ItemCard extends React.Component {
             <p className="card-text">{item.itemlocation}</p>
             <div>
               <Link href="#" className="btn btn-outline-primary" to={editLink}>Edit</Link>
-              {/* <button href="#" className="btn btn-outline-danger" onClick={this.deleteMe}>Delete</button> */}
+              <button href="#" className="btn btn-outline-danger" onClick={this.deleteMe}>Delete</button>
             </div>
           </div>
         </div>

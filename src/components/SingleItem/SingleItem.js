@@ -20,6 +20,13 @@ class SingleItem extends React.Component {
       .catch(err => console.error(err));
   }
 
+  deleteItem = () => {
+    const itemId = this.props.match.params.id;
+    stuffData.deleteItem(itemId)
+      .then(() => this.props.history.push('/mystuff'))
+      .catch(err => console.error(err));
+  }
+
   render() {
     const { item } = this.state;
     const editLink = `/edit/${this.props.match.params.id}`;
@@ -33,7 +40,7 @@ class SingleItem extends React.Component {
               <p className="card-text">{item.itemlocation}</p>
               <div>
                 <Link href="#" className="btn btn-outline-primary" to={editLink}>Edit</Link>
-                {/* <button href="#" className="btn btn-outline-danger" onClick={this.deleteMe}>Delete</button> */}
+                <button href="#" className="btn btn-outline-danger" onClick={this.deleteItem}>Delete</button>
               </div>
             </div>
           </div>
