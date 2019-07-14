@@ -24,4 +24,8 @@ const getSingleItem = itemId => axios.get(`${baseUrl}/stuff/${itemId}.json`);
 
 const postItem = newItem => axios.post(`${baseUrl}/stuff.json`, newItem);
 
-export default { getStuff, getSingleItem, postItem };
+const putItem = (updatedItem, itemId) => axios.put(`${baseUrl}/stuff/${itemId}.json`, updatedItem);
+
+export default {
+  getStuff, getSingleItem, postItem, putItem,
+};
