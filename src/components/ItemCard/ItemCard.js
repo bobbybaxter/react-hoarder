@@ -8,7 +8,7 @@ import './ItemCard.scss';
 class ItemCard extends React.Component {
   static propTypes = {
     item: itemShape.itemShape,
-    deleteMe: PropTypes.func.isRequired,
+    deleteItem: PropTypes.func.isRequired,
   }
 
   deleteMe = (e) => {
