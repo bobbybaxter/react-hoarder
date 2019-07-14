@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
 
@@ -21,6 +22,7 @@ class SingleItem extends React.Component {
 
   render() {
     const { item } = this.state;
+    const editLink = `/edit/${this.props.match.params.id}`;
     return (
       <div className="SingleItem">
         <div className="ItemCard mb-3">
@@ -30,7 +32,7 @@ class SingleItem extends React.Component {
               <img src={item.itemImage} alt={item.itemName} className="stuffImg"></img>
               <p className="card-text">{item.itemlocation}</p>
               <div>
-                {/* <Link href="#" className="btn btn-outline-primary" to={editLink}>Edit</Link> */}
+                <Link href="#" className="btn btn-outline-primary" to={editLink}>Edit</Link>
                 {/* <button href="#" className="btn btn-outline-danger" onClick={this.deleteMe}>Delete</button> */}
               </div>
             </div>

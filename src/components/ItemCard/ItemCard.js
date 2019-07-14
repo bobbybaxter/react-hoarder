@@ -14,6 +14,7 @@ class ItemCard extends React.Component {
   render() {
     const { item } = this.props;
     const singleLink = `/item/${item.id}`;
+    const editLink = `/edit/${item.id}`;
     return (
       <div className="ItemCard col-4 mb-3">
         <div className="card border-0 shadow">
@@ -23,7 +24,7 @@ class ItemCard extends React.Component {
             <img src={item.itemImage} alt={item.itemName} className="stuffImg"></img>
             <p className="card-text">{item.itemlocation}</p>
             <div>
-              {/* <Link href="#" className="btn btn-outline-primary" to={editLink}>Edit</Link> */}
+              <Link href="#" className="btn btn-outline-primary" to={editLink}>Edit</Link>
               {/* <button href="#" className="btn btn-outline-danger" onClick={this.deleteMe}>Delete</button> */}
             </div>
           </div>
